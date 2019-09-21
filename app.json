@@ -1,0 +1,22 @@
+{
+    "name": "News Proxy",
+    "description": "Stupid proxy for censorship circumvention",
+    "keywords": ["news", "proxy", "censorship"],
+    "repository": "https://github.com/fionn/news-proxy",
+    "success_url": "/",
+    "buildpacks": [
+        {
+            "url": "https://github.com/fionn/heroku-buildpack-nothing.git"
+        }
+    ],
+    "env": {
+        "REFERRER": {
+            "description": "The referrer",
+            "value": "https://referring.site/"
+        },
+        "DESTINATION_HOST": {
+            "description": "The target host to proxy requests for",
+            "value": "www.destination.host"
+        }
+    }
+}
