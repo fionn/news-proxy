@@ -12,7 +12,7 @@
     "env": {
         "REFERRER": {
             "description": "The referrer",
-            "value": "https://referring.site/"
+            "value": "https://referring.site"
         },
         "DESTINATION_HOST": {
             "description": "The target host to proxy requests for",
