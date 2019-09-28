@@ -8,4 +8,4 @@ Export the variables `REFERRER` and `DESTINATION_HOST`. Then run `./newsproxy.sh
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fionn/news-proxy)
 
-`git push heroku`
+Then add the remote with `git remote add remote_name https://git.heroku.com/whatever.git` so you can use `git push remote_name` to update the deployment.
