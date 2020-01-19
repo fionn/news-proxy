@@ -27,6 +27,12 @@ function handler {
 function proxy_request {
     local request="https://$DESTINATION_HOST""$1"
 
+    if [ "$1" == "/robots.txt" ]; then
+        log "Disallowing robots"
+        echo -e "HTTP/1.1 200 OK\r\n\r\nUser-agent: *\r\nDisallow: /"
+        return 0
+    fi
+
     log "Proxying request for $request"
     out=$(curl -sSie "$REFERRER" "$request")
 
