@@ -3,6 +3,7 @@
     "description": "Stupid proxy for censorship circumvention",
     "keywords": ["news", "proxy", "censorship"],
     "repository": "https://github.com/fionn/news-proxy",
+    "logo": "https://i.imgur.com/07YVq9O.png",
     "success_url": "/",
     "buildpacks": [
         {
