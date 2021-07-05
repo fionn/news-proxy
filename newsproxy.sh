@@ -2,7 +2,7 @@
 
 set -eEo pipefail
 
-[ -z "$PORT" ] && readonly PORT=1234
+[ -z "$PORT" ] && readonly PORT=8080
 
 set -u
 

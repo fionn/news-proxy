@@ -2,7 +2,7 @@
 
 ## Usage
 
-Export the variables `REFERRER` and `DESTINATION_HOST`. Then run `./newsproxy.sh` and visit `localhost:1234/url/you/want`.
+Export the variables `REFERRER` and `DESTINATION_HOST`. Then run `./newsproxy.sh` and visit `localhost:8080/url/you/want`.
 
 ## Deploy
 
