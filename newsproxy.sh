@@ -16,16 +16,16 @@ function handler {
         line=$(tr -d "\r\n" <<< "$line")
         log "> \e[2m$line\e[0m"
         if grep -qE "^GET /" <<< "$line"; then
-            request=$(cut -d " " -f 2 <<< "$line")
+            path=$(cut -d " " -f 2 <<< "$line")
         elif [ -z "$line" ]; then
-            proxy_request "$request"
+            proxy_request "$path"
             break
         fi
     done
 }
 
 function proxy_request {
-    local request="https://$DESTINATION_HOST""$1"
+    local target="https://$DESTINATION_HOST""$1"
 
     if [ "$1" == "/robots.txt" ]; then
         log "Disallowing robots"
@@ -33,8 +33,8 @@ function proxy_request {
         return 0
     fi
 
-    log "Proxying request for $request"
-    out=$(curl -sSie "$REFERRER" "$request")
+    log "Proxying request for $target"
+    out=$(curl -sSie "$REFERRER" "$target")
 
     status=$(http_status <<< "$out")
     log "Received HTTP $status"
@@ -67,6 +67,8 @@ function listen {
 }
 
 function main {
+    [[ -z "$DESTINATION_HOST" ]] && exit 1
+    [[ -z "$REFERRER" ]] && exit 1
     while true; do
         listen || continue
     done
