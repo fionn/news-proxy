@@ -18,6 +18,10 @@
         "DESTINATION_HOST": {
             "description": "The target host to proxy requests for",
             "value": "www.destination.host"
+        },
+        "USER_AGENT": {
+            "description": "The user agent to identify as",
+            "value": "curl/7.77.0"
         }
     }
 }

@@ -3,6 +3,7 @@
 set -eEo pipefail
 
 [ -z "$PORT" ] && readonly PORT=8080
+[ -z "$UA" ] && readonly UA="curl/7.77.0"
 
 set -u
 
@@ -34,7 +35,7 @@ function proxy_request {
     fi
 
     log "Proxying request for $target"
-    out=$(curl -sSie "$REFERRER" "$target")
+    out=$(curl -sSie "$REFERRER" "$target" -A "$UA")
 
     status=$(http_status <<< "$out")
     log "Received HTTP $status"
